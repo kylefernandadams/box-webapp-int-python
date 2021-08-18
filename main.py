@@ -42,7 +42,7 @@ def move_files(request):
         parent_folder = client.folder(folder_id=current_folder.parent.id).get(fields=['id', 'name', 'type'])
         print('Found parent folder with id: {0} and name: {1}'.format(parent_folder.id, parent_folder.name))
 
-        # Get the target folder
+        # Get the parent folder
         parent_folder_items = client.folder(folder_id=parent_folder.id).get_items(limit=None, offset=0, marker=None,
                                                                                   use_marker=False, sort=None,
                                                                                   direction=None,
@@ -58,13 +58,7 @@ def move_files(request):
         print('Found target folder with id: {0}, name: {1}, and owner login: {2}'.format(target_folder.id,
                                                                                          target_folder.name,
                                                                                          target_folder.owned_by.login))
-
-        # Get target folder owner. This is needed to move the files since the target folder may not be owned by the user executing the Webapp Integration
-        target_folder_owner = client.user(user_id=target_folder.owned_by.id).get(fields=['id', 'name', 'login'])
-        print('Found current user with id: {0}, login: {1}, and name: {2}'.format(target_folder_owner.id,
-                                                                                  target_folder_owner.login,
-                                                                                  target_folder_owner.name))
-
+                                                                                         
         # Get all of the items in the current folder
         current_folder_items = client.folder(folder_id=current_folder.id).get_items(limit=None, offset=0, marker=None,
                                                                                     use_marker=False, sort=None,

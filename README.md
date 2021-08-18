@@ -1,12 +1,12 @@
 # Box Webapp Integration Example
-This project contains a [Box Webapp Integration](https://developer.box.com/guides/applications/web-app-integrations/) example the leverages the [Box Python SDK](https://github.com/box/box-node-sdk) to move files in one folder to another. This style of use case may be needed when an external collaborator uploads all necessary files and want to submit or acknowledge that all of the pertinent files have been uploaded
+This project contains a [Box Webapp Integration](https://developer.box.com/guides/applications/web-app-integrations/) example the leverages the [Box Python SDK](https://github.com/box/box-python-sdk) to move files in one folder to another. This style of use case may be needed when an external collaborator uploads all necessary files and want to submit or acknowledge that all of the pertinent files have been uploaded
 
 ## Pre-Requisites
 1. Signup for a [Box Developer](https://account.box.com/signup/n/developer) account.
 2. Clone this github repo.
 
 ## Sever-side Deployment Instructions
-1. Create a [Box JWT application](https://developer.box.com/guides/authentication/jwt/with-sdk/), rename the JWT config file to box_config.json, and place it in the root directory of this project.
+1. Create a [Box JWT application](https://developer.box.com/guides/authentication/jwt/jwt-setup/), rename the JWT config file to box_config.json, and place it in the root directory of this project.
 > Note: You may swap out the JWT implementation for three-legged OAuth 2.0. There is no hard requirement to use JWT.  
 
 2. Updated the [target_folder_name](https://github.com/kylefernandadams/box-webapp-int-python/blob/master/main.py#L3) variable with the name of a folder on the same level as the one that the Webapp Integration will be invoked.
